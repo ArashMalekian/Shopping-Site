@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    height: 100px;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 15px darkorange;
+}
+
+.products {
+    text-decoration: none;
+    font-weight: bolder;
+    color: darkblue;
+    margin: 10px;
+    transition: all .5s ease-in;
+    padding: 3px;
+    border-radius: 10px;
+
+}
+
+.products:hover {
+    box-shadow: 0px 0px 15px darkorange;
+}
+
+.shop {
+    text-decoration: none ;
+    font-weight: bolder;
+    color: darkblue;
+    transition: all .5s ease-in;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 10px;
+}
+
+.shop:hover{
+    box-shadow: 0px 0px 15px darkorange;
+
+}
+
+.container span {
+    background-color: darkorange;
+    font-weight: bolder;
+    color: #fff;
+    padding: 5px;
+    border-radius: 25%;
+}
