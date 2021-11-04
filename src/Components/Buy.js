@@ -6,44 +6,56 @@ import { Shop } from './Shop'
 import { shopContext } from '../Contexts/ContextShopping'
 //style 
 import styles from "./Buy.module.css"
+import { Button, Drawer, Grid, Typography } from '@mui/material'
 
 export const Buy = () => {
 
 const {state , dispatch } = useContext(shopContext)
 
     return (
-        <div className={styles.bigcontainer} >
-            <div>
+        <Grid container display="flex" justifyContent="center" >
+            <Grid item  >
             {state.selected.map(item => <Shop key={item.id}  data={item} /> )}
-            </div>
+            </Grid>
            
-            <div className={styles.container} >
-                
+            <Drawer sx={{
+          width: 240,
+          flexShrink: 0,
+          
+          
+        }}
+        variant="permanent"
+        anchor="bottom" 
+        m={65}>
             {
-                state.itemCounter > 0 && <div>
-                    <h4>you have selected {state.itemCounter} item(s)</h4>
-                    <h4>total price : {state.total}$</h4>
-                </div>
+                state.itemCounter > 0 && <Grid contaier textAlign="center" display="flex" justifyContent="space-evenly" >
+                    <Typography variant="h5" fontWeight="bold"  >you have selected {state.itemCounter} item(s)</Typography>
+                    <Typography variant="h5" fontWeight="bold"  >total price : {state.total} $</Typography>
+                </Grid>
 
             }
             {
-                state.checked && <div>
-                    <h2>checked out successfully</h2>
-                    <Link className={styles.link} to="/products" >Buy More</Link>
-                </div>
+                state.checked && <Grid container >
+                    <Typography variant="h5" fontWeight="bold" >checked out successfully</Typography>
+                    <Link className={styles.link} to="/products" >
+                        <Button variant="text"  color="warning" >Buy More</Button>
+                    </Link>
+                </Grid>
             }
             {
-                state.itemCounter === 0 && !state.checked && <div>
-                    <h2> you cleared all items</h2>
-                    <Link className={styles.link} to="/products" >go to shop</Link>
-                </div>
+                state.itemCounter === 0 && !state.checked && <Grid>
+                    <Typography variant="h5" fontWeight="bold" > you cleared all items</Typography>
+                    <Link className={styles.link} to="/products" >
+                        <Button variant="text" color="warning"  >Products</Button>
+                    </Link>
+                </Grid>
 
             }
-             <button onClick ={() => dispatch({type :"CHECKOUT"})} >check out</button>
-            <button onClick ={() => dispatch({type :"CLEAR"})} >clear</button>
-            </div>
+             <Button variant="contained" color="warning"  onClick ={() => dispatch({type :"CHECKOUT"})} >check out</Button>
+            <Button variant="contained" color="warning"  onClick ={() => dispatch({type :"CLEAR"})} >clear</Button>
             
+            </Drawer>
 
-        </div>
+        </Grid>
     )
 }

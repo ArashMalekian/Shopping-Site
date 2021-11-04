@@ -1,3 +1,5 @@
+import { Button, Grid } from '@mui/material'
+import { Box } from '@mui/system'
 import React , {useContext} from 'react'
 import { Link } from 'react-router-dom'
 //context
@@ -10,16 +12,19 @@ export const NavBar = () => {
     const {state} = useContext(shopContext)
 
     return (
-        <div className={styles.container} >
-            <div>
-                <Link className={styles.products} to="/products" >PRODUCTS</Link>
-            </div>
-            <div>
-                <Link className={styles.shop} to="/buy" >GO TO SHOP</Link>
-                <span>
+        <Grid container className={styles.container} >
+            <Grid item >
+                <Button href="/products" color="warning" variant="contained" fontWeight="bold" >PRODUCTS</Button>
+            </Grid>            
+            <Grid item  justifyContent="space-between" display="flex">
+                
+                <Link  to="/buy" style={{textDecoration:"none" }} >
+                <Button color="warning" variant="outlined" fontWeight="bold" >GO TO SHOP</Button>
+                </Link>
+                <Box component="span" color="white" backgroundColor="orange" fontWeight="bold" borderRadius={25} p={1.5}  >
                     {state.itemCounter}
-                </span>
-            </div>
-        </div>
+                </Box>
+            </Grid>
+        </Grid>
     )
 }

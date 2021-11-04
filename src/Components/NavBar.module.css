@@ -5,7 +5,7 @@
     position: sticky;
     height: 100px;
     margin-bottom: 50px;
-    box-shadow: 0px 0px 15px darkorange;
+    box-shadow: 0px 0px 15px darkblue;
 }
 
 .products {
@@ -39,7 +39,7 @@
 }
 
 .container span {
-    background-color: darkorange;
+    /* background-color: darkorange; */
     font-weight: bolder;
     color: #fff;
     padding: 5px;

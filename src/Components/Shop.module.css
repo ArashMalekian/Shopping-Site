@@ -2,8 +2,7 @@
     width: 800px;
     height: 300px;
     display: flex;
-    border: 1px solid rgb(218, 218, 218);
-    box-shadow: 0px 0px 15px  darkorange;
+    box-shadow: 0px 0px 15px  darkblue;
     border-radius: 10px;
     margin: auto;
     margin-top: 30px;
